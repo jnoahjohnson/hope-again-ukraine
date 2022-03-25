@@ -1,4 +1,4 @@
-app = "hope-again-ukraine-78dc"
+app = "hope-again-ukraine"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = [ ]
