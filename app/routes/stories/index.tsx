@@ -1,4 +1,4 @@
-import { json, Link, LoaderFunction, NavLink, useLoaderData } from "remix";
+import { json, LoaderFunction, NavLink, useLoaderData } from "remix";
 import { getAllStories } from "~/models/story.server";
 
 type LoaderData = {

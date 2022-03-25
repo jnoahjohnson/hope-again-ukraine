@@ -14,11 +14,11 @@ export default function NavBar() {
           <Link to="/stories">Stories</Link>
         </li>
         <li>
-          <Link to="/">About</Link>
+          <Link to="/about">About</Link>
         </li>
         <li>
           <Link
-            to="/"
+            to="/donate"
             className="rounded bg-primary-blue px-4 py-2 font-medium text-white shadow"
           >
             Donate

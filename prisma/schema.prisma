@@ -10,7 +10,7 @@ generator client {
 model Donation {
   id          String @id @default(cuid())
   amount      Int
-  createdAt   DateTime
+  createdAt   DateTime @default(now())
   title       String
   imageUrl    String
   userDonations UserDonations[]
@@ -49,6 +49,7 @@ model Story {
   title String
   body  String
   approved Boolean
+  imageUrl String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

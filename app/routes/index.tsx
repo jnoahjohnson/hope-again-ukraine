@@ -1,26 +1,37 @@
-import { Link } from "remix";
+import { Story } from "@prisma/client";
+import { prisma } from "~/db.server";
+import { json, LoaderFunction, useLoaderData } from "remix";
+import Hero from "~/components/Hero";
 import { useOptionalUser } from "~/utils";
+import HomeStories from "~/components/HomeStories";
+
+type LoaderData = {
+  stories: Story[];
+};
+
+export const loader: LoaderFunction = async () => {
+  const stories = await prisma.story.findMany({
+    where: {
+      approved: true,
+    },
+    take: 3,
+  });
+
+  return json<LoaderData>({ stories });
+};
 
 export default function Index() {
   const user = useOptionalUser();
+  const data = useLoaderData() as LoaderData;
 
   return (
     <main className="relative">
-      <div className="relative h-[400px] w-full bg-gray-200">
-        <img
-          src="https://images.unsplash.com/photo-1565711561500-49678a10a63f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-          className="absolute inset-0 h-full w-full object-cover"
-          alt="Ukraine Flag"
-        />
-        <div className="relative mx-auto h-full w-full max-w-6xl">
-          <div className="absolute bottom-6 left-0">
-            <h1 className="text-7xl text-white">
-              <span className="text-4xl">Discover</span>
-              <br />
-              Stories
-            </h1>
-          </div>
-        </div>
+      <Hero />
+      <div className="mx-auto max-w-6xl py-8">
+        <h1 className="mb-2 text-4xl font-semibold text-gray-800">
+          Discover Stories
+        </h1>
+        <HomeStories stories={data.stories} />
       </div>
     </main>
   );
