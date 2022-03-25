@@ -2,7 +2,7 @@ import * as React from "react";
 import { Form, json, redirect, useActionData } from "remix";
 import type { ActionFunction } from "remix";
 
-import { createNote } from "~/models/note.server";
+import { createStory } from "~/models/story.server";
 import { requireUserId } from "~/session.server";
 
 type ActionData = {
@@ -33,12 +33,12 @@ export const action: ActionFunction = async ({ request }) => {
     );
   }
 
-  const note = await createNote({ title, body, userId });
+  const story = await createStory({ title, body, userId });
 
-  return redirect(`/notes/${note.id}`);
+  return redirect(`/userstories/${story.id}`);
 };
 
-export default function NewNotePage() {
+export default function NewUserStoryPage() {
   const actionData = useActionData() as ActionData;
   const titleRef = React.useRef<HTMLInputElement>(null);
   const bodyRef = React.useRef<HTMLTextAreaElement>(null);
