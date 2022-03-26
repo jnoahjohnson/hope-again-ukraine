@@ -91,6 +91,12 @@ jobs:
   #     - name: 📥 Download deps
   #       uses: bahmutov/npm-install@v1
 
+  #     - name: 🐳 Docker compose
+  #       # the sleep is just there to give time for postgres to get started
+  #       run: docker-compose up -d && sleep 3
+  #       env:
+  #         DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
+
   #     - name: 🛠 Setup Database
   #       run: npx prisma migrate reset --force
 
@@ -100,13 +106,13 @@ jobs:
   #     - name: ⚙️ Build
   #       run: npm run build
 
-  # - name: 🌳 Cypress run
-  #   uses: cypress-io/github-action@v3
-  #   with:
-  #     start: npm run start:mocks
-  #     wait-on: "http://localhost:8811"
-  #   env:
-  #     PORT: "8811"
+  #     - name: 🌳 Cypress run
+  #       uses: cypress-io/github-action@v3
+  #       with:
+  #         start: npm run start:mocks
+  #         wait-on: "http://localhost:8811"
+  #       env:
+  #         PORT: "8811"
 
   build:
     name: 🐳 Build
@@ -138,7 +144,6 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
-
       - name: 🔑 Fly Registry Auth
         uses: docker/login-action@v1
         with:
@@ -166,7 +171,6 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-
   deploy:
     name: 🚀 Deploy
     runs-on: ubuntu-latest
