@@ -80,7 +80,7 @@ export default function App() {
         <LanguageBar />
         <NavBar />
         <Outlet />
-        <div className="h-32" />
+
         {data.lineItemData.length > 0 ? (
           <div className="fixed bottom-0 w-full bg-slate-200">
             <MaxWidthContainer classes="py-3">
@@ -101,6 +101,15 @@ export default function App() {
             </MaxWidthContainer>
           </div>
         ) : null}
+        <footer className="flex w-full flex-col items-center justify-center">
+          <img
+            src="https://res.cloudinary.com/pineapple-solutions/image/upload/v1648255660/HopeAgainUkraine/logo_mk9ock.png"
+            alt="Hope"
+            className="mb-4 w-28"
+          />
+          <p>&copy; 2022 Hope Again Foundation</p>
+        </footer>
+        <div className="h-6" />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

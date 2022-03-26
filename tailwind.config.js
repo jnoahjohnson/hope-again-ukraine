@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "primary-blue": {
           DEFAULT: "#0059b5",
+          light: "hsl(209, 100%, 48%)",
         },
         "primary-yellow": {
           DEFAULT: "#ffd400",

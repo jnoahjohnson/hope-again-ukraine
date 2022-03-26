@@ -6,6 +6,8 @@ import Hero from "~/components/Hero";
 import StoryGrid from "~/components/StoryGrid";
 import DonationGrid from "~/components/DonationGrid";
 import MaxWidthContainer from "~/components/layout/MaxWidthContainer";
+import FactsSection from "~/components/home/FactsSection";
+import HomeHero from "~/components/HomeHero";
 
 type LoaderData = {
   stories: Story[];
@@ -31,25 +33,52 @@ export default function Index() {
 
   return (
     <main className="relative">
-      <Hero />
+      <HomeHero
+        altText="Ukraine People"
+        imgSrc="https://res.cloudinary.com/pineapple-solutions/image/upload/v1648336053/HopeAgainUkraine/hero_i9wjt8.jpg"
+        title="Choose To Give Hope"
+      />
       <MaxWidthContainer>
         <h1 className="mb-2 text-4xl font-semibold text-gray-800">
-          Featured Stories
+          The Challenge
         </h1>
-        <StoryGrid stories={data.stories} />
+        <FactsSection />
       </MaxWidthContainer>
       <MaxWidthContainer>
         <h1 className="mb-2 text-4xl font-semibold text-gray-800">
-          Provide Aid
+          How You Can Help
         </h1>
+        <p className="mb-4 max-w-prose text-xl font-medium text-gray-700">
+          Learn about inspiring stories from real Ukrainian refugees who are
+          struggling due to the conflict, but benefiting from your donations.
+        </p>
         <DonationGrid donations={data.donations} />
-
-        <Link
-          to="/donate"
-          className="mx-auto mt-4 block w-48 rounded bg-gray-800 py-3 text-center font-bold text-white hover:bg-gray-700"
-        >
-          See All Donations
-        </Link>
+        <div className="mt-8 text-center">
+          <Link
+            to="/donate"
+            className="text-center text-xl font-semibold text-gray-700 hover:text-gray-800 hover:underline"
+          >
+            See All Items
+          </Link>
+        </div>
+      </MaxWidthContainer>
+      <MaxWidthContainer>
+        <h1 className="mb-2 text-4xl font-semibold text-gray-800">
+          Who You Are Impacting
+        </h1>
+        <p className="mb-4 max-w-prose text-xl font-medium text-gray-700">
+          Learn about inspiring stories from real Ukrainian refugees who are
+          struggling due to the conflict, but benefiting from your donations.
+        </p>
+        <StoryGrid stories={data.stories} />
+        <div className="mt-8 text-center">
+          <Link
+            to="/stories"
+            className="text-center text-xl font-semibold text-gray-700 hover:text-gray-800 hover:underline"
+          >
+            See More Stories
+          </Link>
+        </div>
       </MaxWidthContainer>
     </main>
   );
