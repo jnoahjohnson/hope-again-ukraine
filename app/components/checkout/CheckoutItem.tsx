@@ -15,16 +15,18 @@ export default function CheckoutItem({
         className="absolute inset-0 h-full w-full rounded object-cover shadow"
         alt={checkoutItem.title}
       />
-      <div className="text-md absolute -top-2 -right-2 flex aspect-square h-6 w-6 items-center justify-center rounded-full bg-primary-blue  text-white">
-        {checkoutItem.quantity}
+      <div className="group">
+        <Form action="/donate/remove" method="post">
+          <input type="hidden" name="itemId" value={checkoutItem.stripeId} />
+          <input type="hidden" name="redirectTo" value={pathname} />
+          <button className="text-md absolute -top-2 -right-2 flex aspect-square h-6 w-6 items-center justify-center rounded-full bg-red-600  text-white">
+            <XIcon className="h-4 w-4" />
+          </button>
+        </Form>
+        <div className="text-md absolute -top-2 -right-2 flex aspect-square h-6 w-6 cursor-pointer items-center justify-center rounded-full bg-primary-blue  text-white group-hover:hidden">
+          {checkoutItem.quantity}
+        </div>
       </div>
-      <Form action="/donate/remove" method="post">
-        <input type="hidden" name="itemId" value={checkoutItem.stripeId} />
-        <input type="hidden" name="redirectTo" value={pathname} />
-        <button className="text-md absolute -top-2 -left-2 flex aspect-square h-6 w-6 items-center justify-center rounded-full bg-red-600  text-white">
-          <XIcon className="h-4 w-4" />
-        </button>
-      </Form>
     </div>
   );
 }

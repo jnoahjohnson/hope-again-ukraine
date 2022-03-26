@@ -15,7 +15,7 @@ export const action: ActionFunction = async ({ request }) => {
     throw Error("There was an issue with the itemId");
   }
 
-  return addItem(request, itemId, "/");
+  return addItem(request, itemId, redirectTo);
 };
 
 export default function AddItemPage() {

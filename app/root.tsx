@@ -21,6 +21,7 @@ import { prisma } from "./db.server";
 import { getItems, LineItem } from "./utils/stripe.server";
 import { LineItemData } from "./types/checkout";
 import { Donation } from "@prisma/client";
+import { ChevronRightIcon } from "@heroicons/react/outline";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -68,7 +69,6 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function App() {
   const data = useLoaderData() as LoaderData;
-  console.log(data);
 
   return (
     <html lang="en" className="h-full">
@@ -84,7 +84,7 @@ export default function App() {
         {data.lineItemData.length > 0 ? (
           <div className="fixed bottom-0 w-full bg-slate-200">
             <MaxWidthContainer classes="py-3">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-4">
                 {data.lineItemData.map((item) => (
                   <CheckoutItem checkoutItem={item} key={item.id} />
                 ))}
@@ -93,8 +93,8 @@ export default function App() {
                   method="post"
                   className="ml-auto"
                 >
-                  <button className="rounded bg-yellow-600 px-3 py-1 text-xl font-bold text-white">
-                    Checkout
+                  <button className="flex items-center rounded bg-yellow-600 px-3 py-1 text-xl font-bold text-white ">
+                    Checkout <ChevronRightIcon className="ml-2 h-5 w-5" />
                   </button>
                 </Form>
               </div>
