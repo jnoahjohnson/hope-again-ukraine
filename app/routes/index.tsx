@@ -1,12 +1,15 @@
-import { Story } from "@prisma/client";
+import { Donation, Story } from "@prisma/client";
 import { prisma } from "~/db.server";
-import { json, LoaderFunction, useLoaderData } from "remix";
+import { json, Link, LoaderFunction, useLoaderData } from "remix";
 import Hero from "~/components/Hero";
 import { useOptionalUser } from "~/utils";
-import HomeStories from "~/components/HomeStories";
+import StoryGrid from "~/components/StoryGrid";
+import DonationGrid from "~/components/DonationGrid";
+import MaxWidthContainer from "~/components/layout/MaxWidthContainer";
 
 type LoaderData = {
   stories: Story[];
+  donations: Donation[];
 };
 
 export const loader: LoaderFunction = async () => {
@@ -17,7 +20,11 @@ export const loader: LoaderFunction = async () => {
     take: 3,
   });
 
-  return json<LoaderData>({ stories });
+  const donations = await prisma.donation.findMany({ take: 4 });
+
+  console.log("donations", donations);
+
+  return json<LoaderData>({ stories, donations });
 };
 
 export default function Index() {
@@ -27,12 +34,25 @@ export default function Index() {
   return (
     <main className="relative">
       <Hero />
-      <div className="mx-auto max-w-6xl py-8">
+      <MaxWidthContainer>
         <h1 className="mb-2 text-4xl font-semibold text-gray-800">
-          Discover Stories
+          Featured Stories
         </h1>
-        <HomeStories stories={data.stories} />
-      </div>
+        <StoryGrid stories={data.stories} />
+      </MaxWidthContainer>
+      <MaxWidthContainer>
+        <h1 className="mb-2 text-4xl font-semibold text-gray-800">
+          Provide Aid
+        </h1>
+        <DonationGrid donations={data.donations} />
+
+        <Link
+          to="/donate"
+          className="mx-auto mt-4 block w-48 rounded bg-gray-800 py-3 text-center font-bold text-white hover:bg-gray-700"
+        >
+          See All Donations
+        </Link>
+      </MaxWidthContainer>
     </main>
   );
 }

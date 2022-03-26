@@ -1,37 +1,31 @@
-import { json, LoaderFunction, NavLink, useLoaderData } from "remix";
+import { json, LoaderFunction, useLoaderData } from "remix";
+import StoryGrid from "~/components/StoryGrid";
 import { getAllStories } from "~/models/story.server";
+import type { Story } from "@prisma/client";
+import MaxWidthContainer from "~/components/layout/MaxWidthContainer";
+import Hero from "~/components/Hero";
 
 type LoaderData = {
-  storyListItems: Awaited<ReturnType<typeof getAllStories>>;
+  allStories: Story[];
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const storyListItems = await getAllStories();
-  return json<LoaderData>({ storyListItems });
+  const allStories = await getAllStories();
+  return json<LoaderData>({ allStories });
 };
 
 export default function UserStoryIndexPage() {
   const data = useLoaderData() as LoaderData;
   return (
-    <div>
-      {data.storyListItems.length === 0 ? (
-        <p className="p-4">No notes yet</p>
-      ) : (
-        <ol>
-          {data.storyListItems.map((story) => (
-            <li key={story.id}>
-              <NavLink
-                className={({ isActive }) =>
-                  `block border-b p-4 text-xl ${isActive ? "bg-white" : ""}`
-                }
-                to={story.id}
-              >
-                {story.title}
-              </NavLink>
-            </li>
-          ))}
-        </ol>
-      )}
-    </div>
+    <>
+      <Hero
+        imgSrc="https://images.unsplash.com/photo-1565711561500-49678a10a63f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+        altText="Ukraine Flag"
+        title="Discover Stories"
+      />
+      <MaxWidthContainer>
+        <StoryGrid stories={data.allStories} />
+      </MaxWidthContainer>
+    </>
   );
 }

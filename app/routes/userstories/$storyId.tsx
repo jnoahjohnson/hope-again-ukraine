@@ -2,9 +2,9 @@ import type { LoaderFunction, ActionFunction } from "remix";
 import { redirect } from "remix";
 import { json, useLoaderData, useCatch, Form } from "remix";
 import invariant from "tiny-invariant";
-import type { Story } from "~/models/story.server";
+import { getUserStory, Story } from "~/models/story.server";
 import { deleteStory } from "~/models/story.server";
-import { getStory } from "~/models/story.server";
+
 import { requireUserId } from "~/session.server";
 
 type LoaderData = {
@@ -15,7 +15,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const userId = await requireUserId(request);
   invariant(params.storyId, "storyId not found");
 
-  const story = await getStory({ userId, id: params.storyId });
+  const story = await getUserStory({ userId, id: params.storyId });
   if (!story) {
     throw new Response("Not Found", { status: 404 });
   }

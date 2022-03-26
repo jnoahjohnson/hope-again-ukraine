@@ -4,7 +4,13 @@ import { prisma } from "~/db.server";
 
 export type { Story } from "@prisma/client";
 
-export function getStory({
+export function getStory({ id }: Pick<Story, "id">) {
+  return prisma.story.findFirst({
+    where: { id },
+  });
+}
+
+export function getUserStory({
   id,
   userId,
 }: Pick<Story, "id"> & {
@@ -56,7 +62,5 @@ export function deleteStory({
 export function getAllStories() {
   return prisma.story.findMany({
     where: { approved: true },
-    select: { id: true, title: true, body: true },
-    orderBy: { updatedAt: "desc" },
   });
 }

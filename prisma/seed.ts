@@ -59,11 +59,70 @@ async function seed() {
     },
   });
 
+  await prisma.donation.deleteMany();
+
   await prisma.donation.create({
     data: {
-      title: "Test Donation",
-      amount: 123,
-      imageUrl: "test",
+      title: "Water",
+      amount: 5,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250292/HopeAgainUkraine/water_rhzbqt.jpg",
+    },
+  });
+  await prisma.donation.create({
+    data: {
+      title: "Female Hygiene Kit",
+      amount: 3,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250292/HopeAgainUkraine/fhk_rntumn.jpg",
+    },
+  });
+  await prisma.donation.create({
+    data: {
+      title: "Week Supply of Food",
+      amount: 28,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250293/HopeAgainUkraine/week_uhlrb3.jpg",
+    },
+  });
+  await prisma.donation.create({
+    data: {
+      title: "Baby Formula",
+      amount: 8,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250292/HopeAgainUkraine/formula_cgyida.jpg",
+    },
+  });
+  await prisma.donation.create({
+    data: {
+      title: "Diapers For A Week",
+      amount: 12,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250292/HopeAgainUkraine/diapers_iiri7c.jpg",
+    },
+  });
+  await prisma.donation.create({
+    data: {
+      title: "Clothing Kit",
+      amount: 7,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250293/HopeAgainUkraine/clothes_ksu8p9.jpg",
+    },
+  });
+  await prisma.donation.create({
+    data: {
+      title: "Pair of Shoes",
+      amount: 5,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250292/HopeAgainUkraine/shoes_jcmxnj.jpg",
+    },
+  });
+  await prisma.donation.create({
+    data: {
+      title: "Blanket",
+      amount: 6,
+      imageUrl:
+        "https://res.cloudinary.com/pineapple-solutions/image/upload/v1648250292/HopeAgainUkraine/blanket_jfsywc.jpg",
     },
   });
 

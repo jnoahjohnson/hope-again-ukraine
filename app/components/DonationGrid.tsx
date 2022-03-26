@@ -3,7 +3,7 @@ import DonationCard from "./donations/DonationCard";
 
 export default function DonationGrid({ donations }: { donations: Donation[] }) {
   return (
-    <div className="grid grid-cols-4 gap-2">
+    <div className="grid w-full grid-cols-4 gap-4">
       {donations.map((donation) => (
         <DonationCard donation={donation} key={donation.id} />
       ))}
