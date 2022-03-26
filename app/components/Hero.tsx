@@ -11,9 +11,10 @@ export default function Hero({
     <div className="relative h-[400px] w-full bg-gray-200">
       <img
         src={imgSrc}
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover bg-blend-multiply"
         alt={altText}
       />
+      <div className="absolute inset-0 h-full w-full bg-black opacity-10" />
       <div className="relative mx-auto h-full w-full max-w-6xl">
         <div className="absolute bottom-6 left-0">
           <h1 className="text-7xl text-white">

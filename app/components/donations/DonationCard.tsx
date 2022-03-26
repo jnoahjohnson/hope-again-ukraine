@@ -11,7 +11,6 @@ export default function DonationCard({
   donation: Donation;
   classes?: String;
 }) {
-  console.log(donation);
   return (
     <div className="relative flex h-full w-full flex-col  overflow-hidden rounded bg-slate-50 shadow">
       <div className={`relative min-h-[312px] w-full  ${classes ?? ""}`}>

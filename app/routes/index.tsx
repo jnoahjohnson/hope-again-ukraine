@@ -22,8 +22,6 @@ export const loader: LoaderFunction = async () => {
 
   const donations = await prisma.donation.findMany({ take: 4 });
 
-  console.log("donations", donations);
-
   return json<LoaderData>({ stories, donations });
 };
 

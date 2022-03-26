@@ -12,6 +12,7 @@ import type { LinksFunction, MetaFunction, LoaderFunction } from "remix";
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 import { getUser } from "./session.server";
 import NavBar from "./components/NavBar";
+import LanguageBar from "./components/LanguageBar";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
@@ -41,6 +42,7 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
+        <LanguageBar />
         <NavBar />
         <Outlet />
         <ScrollRestoration />

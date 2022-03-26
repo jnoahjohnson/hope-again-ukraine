@@ -28,18 +28,14 @@ export default function UserStoryDetailPage() {
 
   return (
     <div>
-      <div className="w-full bg-slate-100">
-        <MaxWidthContainer py="2">
-          <Link
-            to="/stories"
-            className="flex items-center font-semibold text-gray-800 hover:text-gray-900 hover:underline"
-          >
-            <ChevronLeftIcon className="h-4 w-4" />
-            Back to all stories
-          </Link>
-        </MaxWidthContainer>
-      </div>
-      <div className="mx-auto max-w-prose py-8">
+      <div className="mx-auto max-w-prose py-5">
+        <Link
+          to="/stories"
+          className="mb-2 flex items-center text-lg font-semibold text-gray-800 hover:text-gray-900 hover:underline"
+        >
+          <ChevronLeftIcon className="h-4 w-4" />
+          Back to all stories
+        </Link>
         <img
           src={data.story.imageUrl ?? ""}
           alt={data.story.title}
