@@ -13,6 +13,7 @@ model Donation {
   createdAt   DateTime @default(now())
   title       String
   imageUrl    String
+  stripeId    String
   userDonations UserDonations[]
 }
 
