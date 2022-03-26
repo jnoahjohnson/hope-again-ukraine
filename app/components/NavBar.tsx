@@ -4,7 +4,7 @@ import MaxWidthContainer from "./layout/MaxWidthContainer";
 export default function NavBar() {
   return (
     <nav className="shadow">
-      <MaxWidthContainer py="0">
+      <MaxWidthContainer classes="py-0">
         <div className="mx-auto flex max-w-6xl items-center justify-between">
           <Link to="/">
             <img
