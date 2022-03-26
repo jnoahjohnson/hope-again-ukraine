@@ -1,4 +1,4 @@
-import { ActionFunction, redirect } from "remix";
+import { ActionFunction, LoaderFunction, redirect } from "remix";
 import { checkoutCookie } from "~/cookies";
 import { getCheckout } from "~/utils/stripe.server";
 
@@ -14,3 +14,11 @@ export const action: ActionFunction = async ({ request }) => {
 
   return redirect(checkoutUrl);
 };
+
+export const loader: LoaderFunction = async ({ request }) => {
+  return redirect("/");
+};
+
+export default function CheckoutPage() {
+  return <div>Checkout Page</div>;
+}

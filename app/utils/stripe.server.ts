@@ -14,9 +14,6 @@ const stripe = new Stripe(
   }
 );
 
-//  const cookieHeader = request.headers.get("Cookie");
-//   const cookie = await checkoutCookie.parse(cookieHeader);
-
 export const getCheckout = async (lineItems: LineItem[]) => {
   const checkout = await stripe.checkout.sessions.create({
     line_items: lineItems.map((item) => ({

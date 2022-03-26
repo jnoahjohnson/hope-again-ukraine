@@ -68,6 +68,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export default function App() {
   const data = useLoaderData() as LoaderData;
+  console.log(data);
 
   return (
     <html lang="en" className="h-full">
