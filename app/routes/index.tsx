@@ -2,13 +2,10 @@ import { Donation, Story } from "@prisma/client";
 import { prisma } from "~/db.server";
 import { json, Link, LoaderFunction, useLoaderData } from "remix";
 import Hero from "~/components/Hero";
-import { useOptionalUser } from "~/utils";
+// import { useOptionalUser } from "~/utils";
 import StoryGrid from "~/components/StoryGrid";
 import DonationGrid from "~/components/DonationGrid";
 import MaxWidthContainer from "~/components/layout/MaxWidthContainer";
-import { getItems, LineItem } from "~/utils/stripe.server";
-import { LineItemData } from "~/types/checkout";
-import CheckoutItem from "~/components/checkout/CheckoutItem";
 
 type LoaderData = {
   stories: Story[];
@@ -29,7 +26,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export default function Index() {
-  const user = useOptionalUser();
+  // const user = useOptionalUser();
   const data = useLoaderData() as LoaderData;
 
   return (
