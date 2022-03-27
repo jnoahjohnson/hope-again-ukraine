@@ -5,17 +5,17 @@ module.exports = {
     extend: {
       keyframes: {
         "to-yellow": {
-          "0%": { color: "white" },
-          "100%": { color: "#ffd400" },
+          "0%": { color: "white", opacity: 0 },
+          "100%": { color: "#ffd400", opacity: 1 },
         },
         "to-blue": {
-          "0%": { color: "white" },
-          "100%": { color: "hsl(209, 100%, 48%)" },
+          "0%": { color: "white", opacity: 0 },
+          "100%": { color: "hsl(209, 100%, 48%)", opacity: 1 },
         },
       },
       animation: {
-        "to-yellow": "to-yellow 500ms ease-in forwards",
-        "to-blue": "to-blue 500ms ease-in forwards",
+        "to-yellow": "to-yellow 700ms ease-in forwards",
+        "to-blue": "to-blue 700ms ease-in forwards",
       },
       colors: {
         "primary-blue": {

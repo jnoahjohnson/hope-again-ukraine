@@ -1,3 +1,5 @@
+import { Fade } from "react-awesome-reveal";
+
 const facts = [
   {
     text: "4.7 million refugees have been drive from Ukraine",
@@ -16,25 +18,31 @@ const facts = [
   },
 ];
 
-export default function FactsSection() {
+export default function FactsSection({
+  cascade = true,
+}: {
+  cascade?: boolean;
+}) {
   return (
     <div className="grid grid-cols-3 gap-4">
-      {facts.map((fact) => (
-        <div
-          key={fact.text}
-          className="relative flex h-[350px] w-full items-center justify-center overflow-hidden rounded p-4 shadow"
-        >
-          <img
-            src={fact.imgUrl}
-            alt={fact.text}
-            className="absolute inset-0 h-full w-full object-cover bg-blend-multiply"
-          />
-          <div className="absolute inset-0 bg-black opacity-50" />
-          <h2 className="relative text-center text-3xl font-bold text-white">
-            {fact.text}
-          </h2>
-        </div>
-      ))}
+      <Fade direction="up" cascade={cascade} duration={500} triggerOnce>
+        {facts.map((fact) => (
+          <div
+            key={fact.text}
+            className="relative flex h-[350px] w-full items-center justify-center overflow-hidden rounded p-4 shadow"
+          >
+            <img
+              src={fact.imgUrl}
+              alt={fact.text}
+              className="absolute inset-0 h-full w-full object-cover bg-blend-multiply"
+            />
+            <div className="absolute inset-0 bg-black opacity-50" />
+            <h2 className="relative text-center text-3xl font-bold text-white">
+              {fact.text}
+            </h2>
+          </div>
+        ))}
+      </Fade>
     </div>
   );
 }

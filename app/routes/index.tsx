@@ -52,7 +52,7 @@ export default function Index() {
           Donate to those in need. The donations that you give will be used to
           purchase the following items or equivalent items of the same value.
         </p>
-        <DonationGrid donations={data.donations} />
+        <DonationGrid donations={data.donations} cascade />
         <div className="mt-8 text-center">
           <Link
             to="/donate"
@@ -70,7 +70,7 @@ export default function Index() {
           Learn about inspiring stories from real Ukrainian refugees who are
           struggling due to the conflict, but benefiting from your donations.
         </p>
-        <StoryGrid stories={data.stories} />
+        <StoryGrid stories={data.stories} cascade />
         <div className="mt-8 text-center">
           <Link
             to="/stories"

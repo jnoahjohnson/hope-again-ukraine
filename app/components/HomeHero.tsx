@@ -20,8 +20,12 @@ export default function HomeHero({
       <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center">
         <h1 className="mb-2 text-5xl font-extrabold text-white">
           Choose to{" "}
-          <span className="animate-to-yellow animation-delay-200">Give</span>{" "}
-          <span className="animate-to-blue  animation-delay-500">Hope</span>
+          <span className="animate-to-yellow opacity-0 animation-delay-200">
+            Give
+          </span>{" "}
+          <span className="animate-to-blue  opacity-0 animation-delay-500">
+            Hope
+          </span>
         </h1>
         <h2 className="max-w-prose text-center text-xl font-semibold text-gray-100">
           Millions of refugees have fled Ukraine in the midst of war. Their
