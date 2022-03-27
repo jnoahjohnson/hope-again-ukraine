@@ -81,7 +81,11 @@ export default function App() {
         <NavBar />
         <Outlet />
 
-        <footer className="flex w-full flex-col items-center justify-center bg-slate-50 py-6">
+        <footer
+          className={`flex w-full flex-col items-center justify-center bg-slate-50 pt-6 ${
+            data.lineItemData.length > 0 ? "pb-0" : "pb-6"
+          }`}
+        >
           <img
             src="https://res.cloudinary.com/pineapple-solutions/image/upload/v1648255660/HopeAgainUkraine/logo_mk9ock.png"
             alt="Hope"
