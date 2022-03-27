@@ -10,6 +10,7 @@ module.exports = {
         },
         "primary-yellow": {
           DEFAULT: "#ffd400",
+          dark: "hsl(50, 100%, 42%)",
         },
       },
     },

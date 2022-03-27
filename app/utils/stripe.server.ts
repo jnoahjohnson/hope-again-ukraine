@@ -19,9 +19,14 @@ export const getCheckout = async (lineItems: LineItem[]) => {
     line_items: lineItems.map((item) => ({
       price: item.id,
       quantity: item.quantity,
+      adjustable_quantity: {
+        enabled: true,
+        minimum: 1,
+        maximum: 10,
+      },
     })),
-    cancel_url: "http://localhost:3000/",
-    success_url: "http://localhost:3000/",
+    cancel_url: "http://ukraine.hopeagain.today/",
+    success_url: "http://ukraine.hopeagain.today/thank-you",
     mode: "payment",
   });
 

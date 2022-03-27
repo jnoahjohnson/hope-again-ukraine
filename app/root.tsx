@@ -81,35 +81,41 @@ export default function App() {
         <NavBar />
         <Outlet />
 
-        {data.lineItemData.length > 0 ? (
-          <div className="fixed bottom-0 w-full bg-slate-200">
-            <MaxWidthContainer classes="py-3">
-              <div className="flex items-center gap-4">
-                {data.lineItemData.map((item) => (
-                  <CheckoutItem checkoutItem={item} key={item.id} />
-                ))}
-                <Form
-                  action="/donate/checkout"
-                  method="post"
-                  className="ml-auto"
-                >
-                  <button className="flex items-center rounded bg-yellow-600 px-3 py-1 text-xl font-bold text-white ">
-                    Checkout <ChevronRightIcon className="ml-2 h-5 w-5" />
-                  </button>
-                </Form>
-              </div>
-            </MaxWidthContainer>
-          </div>
-        ) : null}
-        <footer className="flex w-full flex-col items-center justify-center">
+        <footer className="flex w-full flex-col items-center justify-center bg-slate-50 py-6">
           <img
             src="https://res.cloudinary.com/pineapple-solutions/image/upload/v1648255660/HopeAgainUkraine/logo_mk9ock.png"
             alt="Hope"
-            className="mb-4 w-28"
+            className="mb-4 w-20"
           />
-          <p>&copy; 2022 Hope Again Foundation</p>
+          <p className="text-sm text-gray-600">
+            &copy; 2022 Hope Again Foundation
+          </p>
         </footer>
-        <div className="h-6" />
+
+        {data.lineItemData.length > 0 ? (
+          <>
+            <div className="h-36 w-full bg-slate-50" />
+            <div className="fixed bottom-0 w-full bg-slate-200">
+              <MaxWidthContainer classes="py-3">
+                <div className="flex items-center gap-4">
+                  {data.lineItemData.map((item) => (
+                    <CheckoutItem checkoutItem={item} key={item.id} />
+                  ))}
+                  <Form
+                    action="/donate/checkout"
+                    method="post"
+                    className="ml-auto"
+                  >
+                    <button className="flex items-center rounded bg-yellow-600 px-3 py-1 text-xl font-bold text-white ">
+                      Checkout <ChevronRightIcon className="ml-2 h-5 w-5" />
+                    </button>
+                  </Form>
+                </div>
+              </MaxWidthContainer>
+            </div>
+          </>
+        ) : null}
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

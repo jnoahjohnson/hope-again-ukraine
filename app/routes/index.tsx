@@ -49,8 +49,8 @@ export default function Index() {
           How You Can Help
         </h1>
         <p className="mb-4 max-w-prose text-xl font-medium text-gray-700">
-          Learn about inspiring stories from real Ukrainian refugees who are
-          struggling due to the conflict, but benefiting from your donations.
+          Donate to those in need. The donations that you give will be used to
+          purchase the following items or equivalent items of the same value.
         </p>
         <DonationGrid donations={data.donations} />
         <div className="mt-8 text-center">
