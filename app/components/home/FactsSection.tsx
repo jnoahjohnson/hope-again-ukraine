@@ -24,7 +24,7 @@ export default function FactsSection({
   cascade?: boolean;
 }) {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
       <Fade direction="up" cascade={cascade} duration={500} triggerOnce>
         {facts.map((fact) => (
           <div

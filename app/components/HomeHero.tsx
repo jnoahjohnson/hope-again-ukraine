@@ -17,8 +17,8 @@ export default function HomeHero({
         alt={altText}
       />
       <div className="absolute inset-0 h-full w-full bg-black opacity-60" />
-      <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center">
-        <h1 className="mb-2 text-5xl font-extrabold text-white">
+      <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center px-4">
+        <h1 className="mb-2 text-center text-5xl font-extrabold text-white">
           Choose to{" "}
           <span className="animate-to-yellow opacity-0 animation-delay-200">
             Give

@@ -16,7 +16,7 @@ export default function Hero({
       />
       <div className="absolute inset-0 h-full w-full bg-black opacity-10" />
       <div className="relative mx-auto h-full w-full max-w-6xl">
-        <div className="absolute bottom-6 left-0">
+        <div className="absolute bottom-6 left-0 px-4">
           <h1 className="text-7xl text-white">
             <span className="text-4xl">{title.split(" ").at(0)}</span>
             <br />
