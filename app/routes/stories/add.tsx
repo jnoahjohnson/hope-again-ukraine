@@ -37,7 +37,7 @@ export const action: ActionFunction = async ({ request }) => {
       imageUrl,
       questionOne: storyQuestionOne,
       questionTwo: storyQuestionTwo,
-      approved: true,
+      approved: false,
     },
   });
 
