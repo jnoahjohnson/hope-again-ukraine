@@ -22,12 +22,12 @@ export default function StoryCard({
     >
       <img
         src={story.imageUrl ?? DEFAULT_IMAGE}
-        alt={story.title}
+        alt={story.title ?? story.firstName ?? "Story"}
         className="absolute inset-0 h-full w-full rounded object-cover shadow"
       />
       <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-gray-700 to-transparent" />
       <h1 className="absolute left-3 bottom-3 text-4xl font-bold text-white">
-        {story.title}
+        {`${story.firstName} ${story.lastName}`}
       </h1>
     </Link>
   );

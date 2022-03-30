@@ -7,7 +7,7 @@ export default function LanguageBar() {
       <MaxWidthContainer classes="py-2">
         <div className="flex w-full items-center justify-start space-x-1">
           <Link
-            to="/userstories/new"
+            to="/stories/add"
             className="mr-auto text-gray-600 hover:text-gray-800"
           >
             Contribute a Story

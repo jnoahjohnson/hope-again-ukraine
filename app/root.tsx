@@ -76,13 +76,13 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-full">
+      <body className="flex h-full flex-col">
         <LanguageBar />
         <NavBar />
         <Outlet />
 
         <footer
-          className={`flex w-full flex-col items-center justify-center bg-slate-50 pt-6 ${
+          className={`mt-auto flex w-full flex-col items-center justify-center bg-slate-50 pt-6 ${
             data.lineItemData.length > 0 ? "pb-0" : "pb-6"
           }`}
         >

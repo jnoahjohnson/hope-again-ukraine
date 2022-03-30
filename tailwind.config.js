@@ -1,6 +1,5 @@
 module.exports = {
   content: ["./app/**/*.{ts,tsx,jsx,js}"],
-  mode: "jit",
   theme: {
     extend: {
       keyframes: {

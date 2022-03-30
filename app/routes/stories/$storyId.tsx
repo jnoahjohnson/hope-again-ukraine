@@ -43,11 +43,34 @@ export default function UserStoryDetailPage() {
         </Link>
         <img
           src={data.story.imageUrl ?? ""}
-          alt={data.story.title}
+          alt={data.story.firstName ?? ""}
           className="mb-6 rounded shadow-lg"
         />
-        <h3 className="text-4xl font-bold">{data.story.title}</h3>
-        <p className="py-4 text-lg">{data.story.body}</p>
+        <div className="mb-4">
+          <h1 className="text-3xl font-bold">
+            {data.story.firstName + " " + data.story.lastName}
+          </h1>
+          <p className="text-xl text-gray-700">
+            Hometown: {data.story.hometown}
+          </p>
+          <p className="text-xl text-gray-700">
+            Profession/Hobbies: {data.story.profession}
+          </p>
+        </div>
+        <article className="mb-4">
+          <h2 className="mb-1 text-2xl font-semibold text-gray-600">
+            What do you love about Ukraine?
+          </h2>
+          <p className="mb-4 whitespace-pre-wrap text-lg leading-relaxed">
+            {data.story.questionOne}
+          </p>
+          <h2 className="mb-1 text-2xl font-semibold text-gray-600">
+            How have you been impacted by the Russian Invasion?
+          </h2>
+          <p className="whitespace-pre-wrap text-lg leading-relaxed">
+            {data.story.questionOne}
+          </p>
+        </article>
         <div className="py-4">
           <h2 className="mb-2 text-2xl font-medium text-gray-700">
             Ways to Help

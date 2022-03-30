@@ -11,15 +11,25 @@ export default function DonationGrid({
   cascade?: boolean;
   columns?: number;
 }) {
-  const colClass = "md:grid-cols-" + columns;
-
   return (
-    <div className={`grid w-full gap-4 sm:grid-cols-2 ${colClass}`}>
-      <Fade cascade={cascade} direction="up" duration={750} triggerOnce>
-        {donations.map((donation) => (
-          <DonationCard donation={donation} key={donation.id} />
-        ))}
-      </Fade>
-    </div>
+    <>
+      <div
+        className={`grid w-full gap-4 sm:grid-cols-2 ${
+          columns === 1
+            ? "md:grid-cols-1"
+            : columns === 2
+            ? "md:grid-cols-2"
+            : columns === 3
+            ? "md:grid-cols-3"
+            : "md:grid-cols-4"
+        }`}
+      >
+        <Fade cascade={cascade} direction="up" duration={750} triggerOnce>
+          {donations.map((donation) => (
+            <DonationCard donation={donation} key={donation.id} />
+          ))}
+        </Fade>
+      </div>
+    </>
   );
 }

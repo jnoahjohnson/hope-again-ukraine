@@ -52,7 +52,7 @@ export default function Index() {
           Donate to those in need. The donations that you give will be used to
           purchase the following items or equivalent items of the same value.
         </p>
-        <DonationGrid donations={data.donations} cascade />
+        <DonationGrid donations={data.donations} cascade columns={4} />
         <div className="mt-8 text-center">
           <Link
             to="/donate"
