@@ -47,15 +47,15 @@ export async function initI18Next(i18next: typeof i18n, language?: string) {
   // now we tell i18next to use the React plunig and wee initialize it with our options
   await i18next.use(initReactI18next).init(options);
 
-  // if (!isBrowser) {
-  //   // finally if we are running server-side we will require the localized message from the public/locales folder
-  //   // and add it as a resource bundle to i18next so it has the localized message already loaded
-  //   i18n.addResourceBundle(
-  //     language ?? defaultLanguage,
-  //     "namespace1",
-  //     require(`/locales/${language}.json`)
-  //   );
-  // }
+  if (!isBrowser) {
+    // finally if we are running server-side we will require the localized message from the public/locales folder
+    // and add it as a resource bundle to i18next so it has the localized message already loaded
+    i18n.addResourceBundle(
+      language ?? defaultLanguage,
+      "namespace1",
+      require(`../data/locales/${language}.json`)
+    );
+  }
 }
 
 let supportedLanguages = ["en", "ua"];
