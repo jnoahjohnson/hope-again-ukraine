@@ -53,7 +53,7 @@ export async function initI18Next(i18next: typeof i18n, language?: string) {
     i18n.addResourceBundle(
       language ?? defaultLanguage,
       "namespace1",
-      require(`public/locales/${language}.json`)
+      require(`/locales/${language}.json`)
     );
   }
 }
