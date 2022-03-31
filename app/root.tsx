@@ -31,14 +31,14 @@ export const links: LinksFunction = () => {
     { rel: "stylesheet", href: tailwindStylesheetUrl },
     {
       rel: "preload", // we want to preload
-      href: `/locales/en.json`, // the locales for the user language
+      href: `locales/en.json`, // the locales for the user language
       as: "fetch", // as a fetch request
       type: "application/json", // we expect the type application/json
       crossOrigin: "anonymous", // and the request should be cross origin anonymous
     },
     {
       rel: "preload", // we want to preload
-      href: `/locales/ua.json`, // the locales for the user language
+      href: `locales/ua.json`, // the locales for the user language
       as: "fetch", // as a fetch request
       type: "application/json", // we expect the type application/json
       crossOrigin: "anonymous", // and the request should be cross origin anonymous
