@@ -51,6 +51,7 @@ export default function AboutPage() {
               <p className="text-lg text-gray-700">Systems Architect</p>
             </div>
           </div>
+          <p className="hidden">Hello World</p>
         </article>
       </MaxWidthContainer>
     </main>
