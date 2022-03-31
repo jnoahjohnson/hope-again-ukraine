@@ -22,9 +22,28 @@ import { getItems, LineItem } from "./utils/stripe.server";
 import { LineItemData } from "./types/checkout";
 import { Donation } from "@prisma/client";
 import { ChevronRightIcon } from "@heroicons/react/outline";
+import { detectLanguage } from "./utils/i18n";
+
+// TODO - Fix this so you only import one
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+    {
+      rel: "preload", // we want to preload
+      href: `/locales/en.json`, // the locales for the user language
+      as: "fetch", // as a fetch request
+      type: "application/json", // we expect the type application/json
+      crossOrigin: "anonymous", // and the request should be cross origin anonymous
+    },
+    {
+      rel: "preload", // we want to preload
+      href: `/locales/ua.json`, // the locales for the user language
+      as: "fetch", // as a fetch request
+      type: "application/json", // we expect the type application/json
+      crossOrigin: "anonymous", // and the request should be cross origin anonymous
+    },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
@@ -36,6 +55,7 @@ export const meta: MetaFunction = () => ({
 type LoaderData = {
   user: Awaited<ReturnType<typeof getUser>>;
   lineItemData: LineItemData[];
+  language: string;
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -61,9 +81,13 @@ export const loader: LoaderFunction = async ({ request }) => {
       };
     }
   );
+
+  let language = detectLanguage(request);
+
   return json<LoaderData>({
     user: await getUser(request),
     lineItemData,
+    language,
   });
 };
 

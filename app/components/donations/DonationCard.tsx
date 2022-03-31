@@ -1,4 +1,5 @@
 import { Donation } from "@prisma/client";
+import { useTranslation } from "react-i18next";
 import { Form, useLocation } from "remix";
 
 const DEFAULT_IMAGE =
@@ -12,6 +13,7 @@ export default function DonationCard({
   classes?: String;
 }) {
   const { pathname } = useLocation();
+  const [t] = useTranslation();
 
   return (
     <div className="relative flex h-full w-full flex-col  overflow-hidden rounded bg-white shadow-lg">
@@ -37,7 +39,7 @@ export default function DonationCard({
                 type="submit"
                 className="w-full rounded bg-primary-blue py-2 font-bold text-white"
               >
-                Donate
+                {t("donate")}
               </button>
             </Form>
           </div>

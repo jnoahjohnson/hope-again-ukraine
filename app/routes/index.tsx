@@ -8,6 +8,7 @@ import DonationGrid from "~/components/DonationGrid";
 import MaxWidthContainer from "~/components/layout/MaxWidthContainer";
 import FactsSection from "~/components/home/FactsSection";
 import HomeHero from "~/components/HomeHero";
+import { useTranslation } from "react-i18next";
 
 type LoaderData = {
   stories: Story[];
@@ -30,6 +31,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function Index() {
   // const user = useOptionalUser();
   const data = useLoaderData() as LoaderData;
+  const [t] = useTranslation();
 
   return (
     <main className="relative">
@@ -40,17 +42,16 @@ export default function Index() {
       />
       <MaxWidthContainer>
         <h1 className="mb-2 text-4xl font-semibold text-gray-800">
-          The Challenge
+          {t("challenge")}
         </h1>
         <FactsSection />
       </MaxWidthContainer>
       <MaxWidthContainer>
         <h1 className="mb-2 text-4xl font-semibold text-gray-800">
-          How You Can Help
+          {t("howHelp")}
         </h1>
         <p className="mb-4 max-w-prose text-xl font-medium text-gray-700">
-          Donate to those in need. The donations that you give will be used to
-          purchase the following items or equivalent items of the same value.
+          {t("howHelpSub")}
         </p>
         <DonationGrid donations={data.donations} cascade columns={4} />
         <div className="mt-8 text-center">
@@ -58,17 +59,16 @@ export default function Index() {
             to="/donate"
             className="text-center text-xl font-semibold text-gray-700 hover:text-gray-800 hover:underline"
           >
-            See All Items
+            {t("seeAllItems")}
           </Link>
         </div>
       </MaxWidthContainer>
       <MaxWidthContainer>
         <h1 className="mb-2 text-4xl font-semibold text-gray-800">
-          Who You Are Impacting
+          {t("impactHeader")}
         </h1>
         <p className="mb-4 max-w-prose text-xl font-medium text-gray-700">
-          Learn about inspiring stories from real Ukrainian refugees who are
-          struggling due to the conflict, but benefiting from your donations.
+          {t("impactSub")}
         </p>
         <StoryGrid stories={data.stories} cascade />
         <div className="mt-8 text-center">
@@ -76,7 +76,7 @@ export default function Index() {
             to="/stories"
             className="text-center text-xl font-semibold text-gray-700 hover:text-gray-800 hover:underline"
           >
-            See More Stories
+            {t("moreStories")}
           </Link>
         </div>
       </MaxWidthContainer>

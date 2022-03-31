@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "remix";
 import MaxWidthContainer from "./layout/MaxWidthContainer";
 
 export default function LanguageBar() {
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="w-full bg-slate-100">
       <MaxWidthContainer classes="py-2">
@@ -10,11 +13,25 @@ export default function LanguageBar() {
             to="/stories/add"
             className="mr-auto text-gray-600 hover:text-gray-800"
           >
-            Contribute a Story
+            {t("contributeStory")}
           </Link>
-          <button className="font-bold">English</button>
+          <a
+            href="?lng=en"
+            className={`${
+              i18n.language === "en" ? "font-bold" : "font-normal"
+            }`}
+          >
+            English
+          </a>
           <span>|</span>
-          <button>Ukrainian</button>
+          <a
+            href="?lng=ua"
+            className={`${
+              i18n.language === "ua" ? "font-bold" : "font-normal"
+            }`}
+          >
+            український
+          </a>
         </div>
       </MaxWidthContainer>
     </div>
