@@ -8,6 +8,8 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 // and to use it with React with need this plugin
 import { initReactI18next } from "react-i18next";
+import en from "../data/locales/en.json";
+import ua from "../data/locales/ua.json";
 
 let isBrowser = typeof window === "object" && typeof document === "object";
 
@@ -53,7 +55,7 @@ export async function initI18Next(i18next: typeof i18n, language?: string) {
     i18n.addResourceBundle(
       language ?? defaultLanguage,
       "namespace1",
-      require(`../data/locales/${language}.json`)
+      language === "en" ? en : ua
     );
   }
 }
