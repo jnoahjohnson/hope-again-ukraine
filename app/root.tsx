@@ -5,6 +5,7 @@ import {
   LiveReload,
   Meta,
   Outlet,
+  redirect,
   Scripts,
   ScrollRestoration,
   useLoaderData,
@@ -59,6 +60,7 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
+  return redirect("http://www.ukraine4usa.com/");
   const lineItems = await getItems(request);
 
   let userDonations = await prisma.donation.findMany({
